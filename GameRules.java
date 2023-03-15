@@ -1,4 +1,6 @@
 /* Singleton Pattern Class Implementation */
+
+
 public class GameRules {
 //    public static int gameRule;
     private static GameRules object;
