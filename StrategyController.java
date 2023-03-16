@@ -1,3 +1,5 @@
+/* Strategy Design pattern controller class */
+
 import java.util.ArrayList;
 
 public class StrategyController {

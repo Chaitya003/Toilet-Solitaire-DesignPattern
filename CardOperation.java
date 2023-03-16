@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class CardOperation {
     private Command command;
 
@@ -5,7 +7,10 @@ public class CardOperation {
         this.command = command;
     }
 
-    public void cardEvent(){
-        command.execute();
+    public ArrayList<String> cardEvent(){
+        ArrayList<String> arr = new ArrayList<String>();
+        arr = command.execute();
+
+        return arr;
     }
 }

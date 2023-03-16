@@ -5,7 +5,7 @@ public class RemoveCard implements Command{
 
     ArrayList<String> deck;
     int numCards[];
-    boolean isHand;
+    boolean isHand=false;
 
     RemoveCard(ArrayList<String> deck, int numCards[], boolean isHand){
         this.deck = deck;
@@ -14,19 +14,25 @@ public class RemoveCard implements Command{
     }
 
     @Override
-    public void execute() {
+    public ArrayList<String> execute() {
+//        System.out.println(numCards.length);
         if(isHand){
-            for(int i=deck.size()-numCards[1]; i>deck.size()-numCards[0]; i--) {
-                deck.remove(i);
+            for(int i=numCards[0]; i<=numCards[1]; i++) {
+//                System.out.print("Hand removal ");
+//                System.out.print(i);
+                deck.remove((deck.size()-1)-numCards[0]);
             }
         }
         else{
             if(deck.size()>numCards[1]){
-                Collections.sort(deck, Collections.reverseOrder());
-                for(int i=deck.size(); i>deck.size()-numCards[0]; i--) {
-                    deck.remove(i);
+                System.out.println(deck.size());
+//                Collections.sort(deck, Collections.reverseOrder());
+                for(int i=numCards[0]; i<=numCards[1]; i++) {
+//                    System.out.print("Deck removal ");
+//                    System.out.print(i);
+                    deck.remove(0);
                 }
-                Collections.sort(deck, Collections.reverseOrder());
+//                Collections.sort(deck, Collections.reverseOrder());
 //                deck.remove(removeCard + numCards[0], removeCard + (numCards[1] + 1));
             }
             else{
@@ -35,6 +41,6 @@ public class RemoveCard implements Command{
             }
         }
         // }
-//        return deck;
+        return deck;
     }
 }

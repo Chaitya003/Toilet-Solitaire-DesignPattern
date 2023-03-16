@@ -12,7 +12,7 @@ public class DrawCard implements Command{
         this.numDrawCards = numDrawCards;
     }
     @Override
-    public void execute() {
+    public ArrayList<String> execute() {
         for(int i=0; i<numDrawCards; i++){
             if(!deck.isEmpty()){
                 hand.add(deck.get(i));
@@ -20,10 +20,10 @@ public class DrawCard implements Command{
             else{
                 /* Add the logic for rotation of hand*/
                 cnt+=1;
-                Collections.rotate(hand, 1);//(hand.begin(), hand.begin()+1, hand.end());
+                Collections.rotate(hand, hand.size()-1);//(hand.begin(), hand.begin()+1, hand.end());
             }
         }
 
-//        return hand;
+        return hand;
     }
 }
