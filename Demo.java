@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Demo {
     public static void main(String[] args){
+//        ArrayList<String> deck;
+//        public static ArrayList<String> hand;
         GameRules card = GameRules.getObject();
         GameRules new_card = GameRules.getObject();
         card.displayGameRules();

@@ -8,7 +8,7 @@ import java.util.Collections;
 public class Deck {
     private static Deck object;
     int suit, value;
-    ArrayList<String> deck = new ArrayList<>();
+    public static ArrayList<String> deck = new ArrayList<>();
 
     public static Deck getObject(){
         if(object==null){
