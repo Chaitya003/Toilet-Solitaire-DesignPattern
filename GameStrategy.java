@@ -1,3 +1,5 @@
+/* Implementation of Strategy Pattern */
+
 import java.util.ArrayList;
 
 public interface GameStrategy {

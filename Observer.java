@@ -1,3 +1,5 @@
+/* Implementation of Observer Pattern */
+
 import java.util.ArrayList;
 
 public abstract class Observer {

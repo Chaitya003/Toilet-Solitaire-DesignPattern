@@ -1,3 +1,5 @@
+/* Implementation of Command Pattern */
+
 import java.util.ArrayList;
 
 public class Hand implements Command{

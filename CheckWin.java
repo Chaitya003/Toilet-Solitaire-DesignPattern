@@ -1,3 +1,5 @@
+/* Implementation of Observer Pattern */
+
 import java.util.ArrayList;
 
 public class CheckWin {

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Demo {
+public class Game {
     public static void main(String[] args){
         while(true) {
             GameRules rules = GameRules.getObject();
@@ -15,7 +15,7 @@ public class Demo {
             ArrayList<String> hand = new ArrayList<>();
             cardDeck = deck.createDeck();
             cardDeck = deck.shuffleDeck(cardDeck);
-            deck.printDeck(cardDeck);
+//            deck.printDeck(cardDeck);
 
             CardOperation cardoperation = new CardOperation();
             Command handCommand = new Hand(cardDeck, hand);
@@ -55,13 +55,6 @@ public class Demo {
             } else {
                 System.out.println("Select Valid Rules");
             }
-
-//        card.displayBasicMoves();
-//        System.out.println();
-//        card.displayIntermediateMoves();
-//        System.out.println();
-//        card.displayHouseMoves();
-//        System.out.println();
         }
     }
 }
