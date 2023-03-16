@@ -2,9 +2,10 @@ import java.util.ArrayList;
 
 public class IntermediateRule implements GameStrategy{
 
+    int cnt;
     @Override
     public void checkRule(ArrayList<String> deck, ArrayList<String> hand, int nextMove) {
-
+        CardOperation cardoperation = new CardOperation();
 
         if (nextMove == 3) {
             int pairCards[] = new int[1];
@@ -22,19 +23,55 @@ public class IntermediateRule implements GameStrategy{
 
             if (flag) {
                 cnt = 0;
-                hand = removeCards(hand, waste, pairCards, true);
                 int numDrawCards = 2;
-                hand = drawCards(deck, hand, numDrawCards);
-                if (!deck.empty()) {
-                    int numRemoveCardsDeck[] = {0, 1};
-                    deck = removeCards(deck, waste, numRemoveCardsDeck);
+                int numRemoveCardsDeck[] = {0, 1};
+
+                Command drawCard = new DrawCard(deck, hand, numDrawCards);
+                Command removeCardDeck = new RemoveCard(deck, numRemoveCardsDeck, false);
+                Command removeCardHand = new RemoveCard(hand, pairCards, true);
+
+                cardoperation.setCommand(removeCardHand);
+                cardoperation.cardEvent();
+
+                cardoperation.setCommand(drawCard);
+                cardoperation.cardEvent();
+
+                if (!deck.isEmpty()) {
+                    cardoperation.setCommand(removeCardDeck);
+                    cardoperation.cardEvent();
+//                    deck = removeCards(deck, waste, numRemoveCardsDeck);
                 }
 
-                displayMoves(gameRule, deck, hand);
-            } else {
-                cout << "Take valid move." << endl;
-                displayMoves(gameRule, deck, hand);
+//                displayMoves(gameRule, deck, hand);
             }
+            else {
+                System.out.println("Take valid move.");
+//            displayMoves(gameRule, deck, hand);
+            }
+        } else if(nextMove==9){
+            int numDrawCards = 1;
+            int numRemoveCardsDeck[] = {0, 0};
+
+            Command drawCard = new DrawCard(deck, hand, numDrawCards);
+            Command removeCardDeck = new RemoveCard(deck, numRemoveCardsDeck, false);
+//            Command removeCardHand = new RemoveCard(hand, numRemoveCards, true);
+
+            cardoperation.setCommand(drawCard);
+            cardoperation.cardEvent();
+//
+////
+//            hand = drawCards(deck, hand, numDrawCards);
+//
+            if(!deck.isEmpty()){
+                cardoperation.setCommand(removeCardDeck);
+                cardoperation.cardEvent();
+//                deck = removeCards(deck, waste, numRemoveCardsDeck);
+            }
+//            displayMoves(gameRule, deck, hand);
+        }
+        else{
+            System.out.println("Take valid move.");
+//            displayMoves(gameRule, deck, hand);
         }
     }
 }
