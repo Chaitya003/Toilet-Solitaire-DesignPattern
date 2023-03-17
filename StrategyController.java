@@ -9,7 +9,7 @@ public class StrategyController {
         this.strategy = strategy;
     }
 
-    public void executeStrategy(ArrayList<String> deck, ArrayList<String> hand, int nextMove){
-        strategy.checkRule(deck, hand, nextMove);
+    public ArrayList<String> executeStrategy(ArrayList<String> deck, ArrayList<String> hand, int nextMove){
+        return strategy.checkRule(deck, hand, nextMove);
     }
 }

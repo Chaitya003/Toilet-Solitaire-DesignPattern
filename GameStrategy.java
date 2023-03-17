@@ -3,5 +3,5 @@
 import java.util.ArrayList;
 
 public interface GameStrategy {
-    public void checkRule(ArrayList<String> deck, ArrayList<String> hand, int nextMove);
+    public ArrayList<String> checkRule(ArrayList<String> deck, ArrayList<String> hand, int nextMove);
 }

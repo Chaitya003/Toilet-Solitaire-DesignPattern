@@ -28,9 +28,6 @@ public class Hand implements Command{
 
         cardoperation.setCommand(drawCard);
         hand = cardoperation.cardEvent();
-//        if(hand.isEmpty()){
-//
-//        }
         return hand;
     }
 }
